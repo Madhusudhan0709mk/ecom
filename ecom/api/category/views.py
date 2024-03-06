@@ -1,3 +1,7 @@
-from django.shortcuts import render
-
+from .serializers import categorySerliazier
+from rest_framework import viewsets
+from .models import category
 # Create your views here.
+class categoryViewSet(viewsets.ModelViewSet):
+    queryset = category.objects.all().order_by('name')
+    serializer_class = categorySerliazier

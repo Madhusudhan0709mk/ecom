@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,10 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # additionls
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
-    'api'
+    'api',
+    'api.category',
+    'api.product',
+    'api.user',
     # added corsheaders  installed from pip install
 ]
 
@@ -134,6 +139,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # added cors link here
 CORS_ORIGIN_ALLOW_ALL = True
+
+AUTH_USER_MODEL = "user.CustomUser"
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,

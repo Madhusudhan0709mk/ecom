@@ -8,5 +8,5 @@ urlpatterns = [
     # added path of the api-authentictaion 
     path('api-auth/',include('rest_framework.urls')),
     path('api/',include('api.urls'))
-]
+] 
 urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
