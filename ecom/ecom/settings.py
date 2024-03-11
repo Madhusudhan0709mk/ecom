@@ -29,9 +29,9 @@ INSTALLED_APPS = [
     'rest_framework',
     # 'rest_framework.authtoken',
     'api',
-    # 'api.category',
-    # 'api.product',
-    # 'api.user',
+    'api.category',
+    'api.product',
+    'api.user',
     # 'api.order',
     # 'api.payment'
     
@@ -75,12 +75,12 @@ WSGI_APPLICATION = 'ecom.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'NAME': 'ecom',
         'USER':'postgres',
         'PASSWORD':'mad123',
-        'HOST':'localhost'
-        
-        
+        'HOST':'localhost',
+        'PORT': '5432'  
     }
 }
 
@@ -125,6 +125,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CORS_ORIGIN_ALLOW_ALL = True
+# after user model in order to get rid of database error
+AUTH_USER_MODEL = "user.CustomUser"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
